@@ -78,7 +78,7 @@ function Home() {
   };
 
   const handleCheckSolution = () => {
-    setShowSolution((prevShowSolution) => !prevShowSolution);
+    setShowSolution(true);
     setShowAnswerPopup((prevShowAnswerPopup) => !prevShowAnswerPopup);
     setSelectedOption((prevSelectedOption) => !prevSelectedOption);
   };
@@ -116,7 +116,7 @@ function Home() {
             <FontAwesomeIcon
               icon={isBookmarked ? solidBookmark : regularBookmark}
               onClick={handleBookmarkToggle}
-              style={{ cursor: "pointer", height: "25px" }}
+              style={{ cursor: "pointer", height: "20px" }}
             />
           </div>
 

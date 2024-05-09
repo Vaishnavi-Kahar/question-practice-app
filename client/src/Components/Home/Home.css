@@ -67,8 +67,8 @@
 
 @media (max-width: 768px) {
   .answer-popup {
-    display: block;
     position: fixed;
+    width: 80%;
     height: 100vh;
     right: 0;
     z-index: 1000;
@@ -85,6 +85,9 @@
   }
   .inner-buttons {
     gap: 5px;
+  }
+  .answer-image {
+    width: 100%;
   }
 }
 

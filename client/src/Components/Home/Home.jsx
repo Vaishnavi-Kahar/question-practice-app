@@ -92,8 +92,12 @@ function Home() {
       <div
         className="main-content"
         style={
-          showAnswerPopup
-            ? { filter: "blur(1px)", zIndex: "999", position: "relative" }
+          isSmallScreen && showAnswerPopup
+            ? {
+                filter: "blur(1px)",
+                zIndex: 999,
+                position: "relative",
+              }
             : {}
         }
       >

@@ -52,17 +52,12 @@
   height: auto;
   margin-bottom: 20px;
 }
-/* .answer-popup {
+
+.answer-popup {
   width: 50%;
   padding: 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-} */
-
-.answer-popup {
-  width: 50%; /* Full width by default */
-  padding: 16px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: white; /* Set background color as needed */
+  background-color: white;
 }
 .innerTitle {
   display: flex;
@@ -70,14 +65,13 @@
   gap: 10px;
 }
 
-/* Show answer popup when active on smaller screens */
 @media (max-width: 768px) {
   .answer-popup {
     display: block;
     position: fixed;
     height: 100vh;
     right: 0;
-    z-index: 1000; /* Ensure it's above other content */
+    z-index: 1000;
   }
   .title {
     justify-content: space-between;
@@ -94,18 +88,15 @@
   }
 }
 
-/* Styling for the answer popup header */
 .answer-header {
   display: flex;
   justify-content: flex-end;
 }
 
-/* Styling for the close icon */
 .close-icon {
   cursor: pointer;
 }
 
-/* Styling for the answer content */
 .answer-content {
   margin-top: 10px;
 }

@@ -14,6 +14,7 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Grid from "@mui/material/Grid";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 function Home() {
   const [questions, setQuestions] = useState([]);
@@ -26,7 +27,7 @@ function Home() {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await fetch("http://localhost:5000/question");
+        const response = await fetch(`${apiUrl}/question`);
         const data = await response.json();
         setQuestions(data);
       } catch (error) {

@@ -157,18 +157,21 @@ function Home() {
           </RadioGroup>
         </FormControl>
         <div className="grid">
-          <button
-            type="button"
-            className="btn btn-outline-secondary myButtons"
-            disabled={currentQuestionIndex === 0}
-            onClick={handlePrevQuestion}
-          >
-            <FontAwesomeIcon
-              style={{ marginRight: "10px" }}
-              icon={faArrowLeftLong}
-            />
-            Previous
-          </button>
+          {!isSmallScreen && (
+            <button
+              type="button"
+              className="btn btn-outline-secondary myButtons"
+              disabled={currentQuestionIndex === 0}
+              onClick={handlePrevQuestion}
+            >
+              <FontAwesomeIcon
+                style={{ marginRight: "10px" }}
+                icon={faArrowLeftLong}
+              />
+              Previous
+            </button>
+          )}
+
           <div className="inner-buttons">
             <button
               type="button"
@@ -181,18 +184,20 @@ function Home() {
               Submit Answer
             </button>
           </div>
-          <button
-            type="button"
-            className="btn btn-outline-secondary myButtons"
-            disabled={currentQuestionIndex === questions.length - 1}
-            onClick={handleNextQuestion}
-          >
-            Skip
-            <FontAwesomeIcon
-              style={{ marginLeft: "2px" }}
-              icon={faArrowRightLong}
-            />
-          </button>
+          {!isSmallScreen && (
+            <button
+              type="button"
+              className="btn btn-outline-secondary myButtons"
+              disabled={currentQuestionIndex === questions.length - 1}
+              onClick={handleNextQuestion}
+            >
+              Skip
+              <FontAwesomeIcon
+                style={{ marginLeft: "2px" }}
+                icon={faArrowRightLong}
+              />
+            </button>
+          )}
         </div>
       </div>
       {showAnswerPopup && (

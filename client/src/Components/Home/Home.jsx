@@ -8,7 +8,7 @@ import {
   faArrowLeftLong,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
-import Button from "@mui/material/Button";
+
 import FormControl from "@mui/material/FormControl";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
@@ -89,7 +89,7 @@ function Home() {
           <img
             src={questions[currentQuestionIndex]?.image}
             className="question-image"
-            alt="Question Image"
+            alt="questionImage"
           />
         )}
         <FormControl component="fieldset">
@@ -171,7 +171,7 @@ function Home() {
               <img
                 src={questions[currentQuestionIndex]?.answer.image}
                 className="answer-image"
-                alt="Answer Image"
+                alt="SolutionImage"
               />
             )}
           </div>

@@ -1,6 +1,6 @@
 .home {
   display: flex;
-  gap: 1rem;
+
   margin: 0 auto;
 }
 
@@ -85,6 +85,12 @@
   .arrow-icons {
     display: flex;
     justify-content: space-between;
+  }
+  .button-text {
+    font-weight: normal;
+  }
+  .inner-buttons {
+    gap: 5px;
   }
 }
 

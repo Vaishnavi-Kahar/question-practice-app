@@ -1,0 +1,73 @@
+.home {
+  display: flex;
+  gap: 1rem;
+  margin: 0 auto;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+.title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.button-text {
+  font-weight: bold;
+}
+.inner-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.form-container {
+  padding: 10px;
+}
+.option-item {
+  border-radius: 5px;
+  width: 80%;
+  box-shadow: -2px 3px 4px rgba(0, 0, 0, 0.184);
+  transition: all 0.3s ease;
+}
+
+.option-item:hover {
+  background-color: lightgray;
+}
+
+.question-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 20px;
+}
+.answer-popup {
+  width: 50%;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the answer popup header */
+.answer-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Styling for the close icon */
+.close-icon {
+  cursor: pointer;
+}
+
+/* Styling for the answer content */
+.answer-content {
+  margin-top: 10px;
+}

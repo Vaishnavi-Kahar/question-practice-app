@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./Home.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark as regularBookmark } from "@fortawesome/free-regular-svg-icons";
-import { faBookmark as solidBookmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronLeft,
+  faChevronRight,
+  faBookmark as solidBookmark,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faArrowRightLong,
   faArrowLeftLong,
@@ -23,6 +27,7 @@ function Home() {
   const [showSolution, setShowSolution] = useState(false);
   const [showAnswerPopup, setShowAnswerPopup] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -36,6 +41,18 @@ function Home() {
     };
 
     fetchQuestions();
+
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 768);
+    };
+
+    // Add event listener for resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const handleBookmarkToggle = () => {
@@ -72,16 +89,40 @@ function Home() {
 
   return (
     <div className="home">
-      <div className="main-content">
+      <div
+        className="main-content"
+        style={
+          showAnswerPopup
+            ? { filter: "blur(1px)", zIndex: "999", position: "relative" }
+            : {}
+        }
+      >
         <div className="title">
-          <h2 className="question-title">
-            Question {currentQuestionIndex + 1}
-          </h2>
-          <FontAwesomeIcon
-            icon={isBookmarked ? solidBookmark : regularBookmark}
-            onClick={handleBookmarkToggle}
-            style={{ cursor: "pointer", height: "25px" }}
-          />
+          {isSmallScreen && (
+            <FontAwesomeIcon
+              icon={faChevronLeft}
+              onClick={handlePrevQuestion}
+              style={{ cursor: "pointer" }}
+            />
+          )}
+          <div className="innerTitle">
+            <h2 className="question-title">
+              Question {currentQuestionIndex + 1}
+            </h2>
+            <FontAwesomeIcon
+              icon={isBookmarked ? solidBookmark : regularBookmark}
+              onClick={handleBookmarkToggle}
+              style={{ cursor: "pointer", height: "25px" }}
+            />
+          </div>
+
+          {isSmallScreen && (
+            <FontAwesomeIcon
+              icon={faChevronRight}
+              onClick={handleNextQuestion}
+              style={{ cursor: "pointer" }}
+            />
+          )}
         </div>
 
         <strong>{questions[currentQuestionIndex]?.question}</strong>
@@ -163,9 +204,11 @@ function Home() {
           </div>
           <div className="answer-content">
             <p>
-              Correct Answer: {questions[currentQuestionIndex]?.answer.option}
+              <strong>Correct Answer :</strong>{" "}
+              {questions[currentQuestionIndex]?.answer.option}
               <br />
-              Explanation: {questions[currentQuestionIndex]?.answer.explanation}
+              <strong>Explanation: </strong>
+              {questions[currentQuestionIndex]?.answer.explanation}
             </p>
             {questions[currentQuestionIndex]?.answer.image && (
               <img

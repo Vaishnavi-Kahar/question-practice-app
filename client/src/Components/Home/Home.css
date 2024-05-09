@@ -9,7 +9,9 @@
   flex-direction: column;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 16px;
+  transition: filter 0.3s ease;
 }
+
 .title {
   display: flex;
   align-items: center;
@@ -50,10 +52,40 @@
   height: auto;
   margin-bottom: 20px;
 }
-.answer-popup {
+/* .answer-popup {
   width: 50%;
   padding: 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} */
+
+.answer-popup {
+  width: 50%; /* Full width by default */
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white; /* Set background color as needed */
+}
+.innerTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Show answer popup when active on smaller screens */
+@media (max-width: 768px) {
+  .answer-popup {
+    display: block;
+    position: fixed;
+    height: 100vh;
+    right: 0;
+    z-index: 1000; /* Ensure it's above other content */
+  }
+  .title {
+    justify-content: space-between;
+  }
+  .arrow-icons {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 /* Styling for the answer popup header */

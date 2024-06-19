@@ -42,9 +42,4 @@ You can access the live demo of this application here: [Question Practice App De
   ```
 4. Access the application at http://localhost:3000.
 
-### Assignment By:
- Vaishnavi Kahar
- 
- Mobile no. : 8483927844
- 
- Email : kaharvaishnavi@iitbhilai.ac.in
+
